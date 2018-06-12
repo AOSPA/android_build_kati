@@ -683,6 +683,8 @@ class NinjaGenerator {
 
     fprintf(fp, ". %s\n", GetEnvScriptFilename().c_str());
 
+    fprintf(fp, "exec vendor/qcom/opensource/core-utils/build/QSSI_violators %s\n", GetNinjaFilename().c_str());
+
     fprintf(fp, "exec ninja -f %s ", GetNinjaFilename().c_str());
     if (g_flags.remote_num_jobs > 0) {
       fprintf(fp, "-j%d ", g_flags.remote_num_jobs);
