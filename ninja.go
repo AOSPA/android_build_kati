@@ -664,6 +664,7 @@ func (n *NinjaGenerator) generateShell() (err error) {
 		}
 	}
 	if n.GomaDir == "" {
+		fmt.Fprintf(f, "exec vendor/qcom/opensource/core-utils/build/QSSI_violators\n")
 		fmt.Fprintf(f, `exec ninja -f %s "$@"`+"\n", n.ninjaName())
 	} else {
 		fmt.Fprintf(f, `exec ninja -f %s -j500 "$@"`+"\n", n.ninjaName())
